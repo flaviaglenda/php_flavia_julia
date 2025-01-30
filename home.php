@@ -10,20 +10,18 @@
  </head>
  <body>
     <header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="aulas.php">Aulas</a></li>
-            <li><a href="aluno.php">Alunos</a></li>
-            <li><a href="instutor.php">Instrutores</a></li>
-            <li><a class="sair" href="login.php">Sair</a></li>
-        </ul>
-    </nav>
-   
-    <div class="mensagem_inicio">
-        <h1>Bem-vindo ao FitZone!</h1>
-        <p>Conheça as melhores aulas de fitness do Brasil.</p>
-    </div>
-
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.php">Início</a></li>
+                <li><a href="aulas.php">Aulas</a></li>
+                <li><a href="aluno.php">Alunos</a></li>
+                <li><a href="instrutor.php">Instrutores</a></li>
+                <li><a class="sair" href="login.php">Sair</a></li>
+            </ul>
+        </nav>
     </header>
- </body>
- </html>
+    <div class="inicio_fundo">
+        <a href="aulas.php" class="botao_agendar">Agende um horário!</a>
+    </div>
+</body>
+</html>

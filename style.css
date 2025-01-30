@@ -14,6 +14,17 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+ 
+.logo_login {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  max-width: 200px; 
+  height: auto; 
+  margin-left: auto; 
+  margin-right: auto;
+}
 
 .login_fundo {
     background-image: linear-gradient(rgba(24, 24, 24, 0.438),rgba(0, 0, 0, 0.46)), url(img/fundologin.jpg);
@@ -23,18 +34,16 @@ html, body {
     opacity: 60% black;
 }
 
-
 .formcaixa {
     max-width: 350px;
-    background: #ffffffc2; 
+    background: #ffffffd1; 
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 6px;
     color: #000000;
     box-shadow: 4px 4px 10px rgba(1, 1, 1, 0.8); 
 }
 
-  
-  .form {
+.form {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -43,26 +52,21 @@ html, body {
     text-align: center;
   }
   
-  .titulo {
-    font-weight: 950; 
-    font-size: 1.8rem; 
-   
-}
   
-  .subtitulo {
+.subtitulo {
+  font-weight: bold;
     font-size: 1rem;
     color: #000000;
   }
   
-  .form-container {
+.form-container_login {
     overflow: hidden;
     border-radius: 8px;
-    background-color: #fff;
     margin: 1rem 0 .5rem;
     width: 100%;
   }
   
-  .input {
+.login_caixas{
     background: none;
     border: 0;
     outline: 0;
@@ -73,25 +77,25 @@ html, body {
     padding: 8px 15px;
   }
   
-  .pag_login {
+.pag_login {
     padding: 16px;
     font-size: .85rem;
     background-color: #ffffff;
     box-shadow: rgb(0 0 0 / 8%) 0 -1px;
   }
   
-  .pag_login a {
+.pag_login a {
     font-weight: bold;
     color: 42701b;
     transition: color .3s ease;
   }
   
-  .pag_login a:hover {
+.pag_login a:hover {
     color: #ffffff;
     text-decoration: underline;
   }
   
-  .form button {
+.form button {
     background-color: 42701b;
     color: #fff;
     border: 0;
@@ -147,7 +151,7 @@ html, body {
     left: 0;
     width: 100%;
     z-index: 100;
-    height: 50px;
+    height: 40px;
 }
 
 .navbar ul {
@@ -168,10 +172,89 @@ html, body {
     font-weight: bold;
     padding: 8px 12px;
     transition: 0.3s; 
-
 }
 
 .navbar a:hover {
     color: #000000; 
 }
 
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+th {
+  background: transparent;
+  color: #000000;
+  font-size: 1.1rem;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td a {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+td a[href*="editar"] {
+  background-color: #ffc107;
+  color: #000;
+}
+
+
+td a[href*="excluir"] {
+  background-color: #b11200;
+  color: #fff;
+}
+
+.instrutores_form {
+  background: #ffffff;
+  width: 40%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+form input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #218838;
+} 
