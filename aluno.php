@@ -15,7 +15,7 @@ if (!empty($cod)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['delete_id'])) {  // Excluir aluno
+    if (isset($_POST['delete_id'])) { 
         $cod = $_POST['delete_id'];
         $sql = "DELETE FROM aluno WHERE aluno_cod = ?";
         $stmt = $conexao->prepare($sql);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         echo "<script>alert('Aluno excluído com sucesso!');</script>";
     } 
-    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // Atualizar aluno
+    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) { 
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
@@ -31,11 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE aluno SET nome = ?, endereco = ?, telefone = ? WHERE aluno_cod = ?";
         $stmt = $conexao->prepare($sql);
         $stmt->bind_param("sssi", $nome, $endereco, $telefone, $cod);
-        if ($stmt->execute()) {
-            echo "<script>alert('Dados atualizados com sucesso!');</script>";
-        } else {
-            echo "<script>alert('Erro ao atualizar os dados.');</script>";
-        }
+        echo "<script>alert('Dados atualizados com sucesso!');</script>";
     }
 }
 $sql = "SELECT * FROM aluno";
@@ -51,8 +47,17 @@ $result = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Lista de alunos</h2>
-    <table border="1">
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="aulas.php">Aulas</a></li>
+            <li><a href="aluno.php">Alunos</a></li>
+            <li><a href="instutor.php">Instrutores</a></li>
+            <li><a class="sair" href="login.php">Sair</a></li>
+        </ul>
+    </nav>
+    <h2 class="titulo">Lista de alunos</h2>
+    <table border="1" class="tabela_alunos">
         <tr>
             <th>Nome</th>
             <th>CPF</th>
