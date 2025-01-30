@@ -1,33 +1,44 @@
 <!-- Flávia Glenda e Julia Conconi -->
+ 
 <?php
+include 'conexao.php';
 
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'db_academia';
+$cod = $_GET['cod'] ?? null;
+$resultado = null;
 
-$conexao = new mysqli( $hostname, $username, $password, $database);
-
-if ($conexao->connect_error){
-    die('Conexão falhou: ' . $conexao->connect_error);
+if (!empty($cod)) {
+    $sql = "SELECT * FROM aluno WHERE aluno_cod = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $cod);
+    $stmt->execute();
+    $resultado = $stmt->get_result()->fetch_assoc();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['delete_id'])) {
-        $id = $_POST['delete_id'];
-        $sql = "DELETE FROM aluno WHERE id=$id";
-        $conexao->query($sql);
-    } elseif (isset($_POST['update_id'])) {
-        $id = $_POST['update_id'];
-        $aluno_nome = $POST['nome'];
-        $aluno_endereco = $POST['endereco'];
-        $aluno_telefone = $POST['telefone'];
-        $sql = "UPDATE alunos SET nome='$nome', endereco='$endereco', telefone='$telefone' WHERE id=$id";
-        $conexao->query($sql);
+    if (isset($_POST['delete_id'])) {  // Excluir aluno
+        $cod = $_POST['delete_id'];
+        $sql = "DELETE FROM aluno WHERE aluno_cod = ?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $cod);
+        $stmt->execute();
+        echo "<script>alert('Aluno excluído com sucesso!');</script>";
+    } 
+    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // Atualizar aluno
+        $nome = $_POST['nome'];
+        $endereco = $_POST['endereco'];
+        $telefone = $_POST['telefone'];
+    
+        $sql = "UPDATE aluno SET nome = ?, endereco = ?, telefone = ? WHERE aluno_cod = ?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("sssi", $nome, $endereco, $telefone, $cod);
+        if ($stmt->execute()) {
+            echo "<script>alert('Dados atualizados com sucesso!');</script>";
+        } else {
+            echo "<script>alert('Erro ao atualizar os dados.');</script>";
+        }
     }
 }
-
-$sql = "SELECT aluno_cod, aluno_nome, aluno_cpf, aluno_telefone, FROM aluno";
+$sql = "SELECT * FROM aluno";
 $result = $conexao->query($sql);
 ?>
 
@@ -46,23 +57,25 @@ $result = $conexao->query($sql);
             <th>Nome</th>
             <th>CPF</th>
             <th>Telefone</th>
-            <th>Ações</th>
+            <th>Endereço</th>
+            <th>Modificar</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
-            <td><?= $row['nome']?></td>
-            <td><?= $row['cpf']?></td>
-            <td><?= $row['telefone']?></td>
+            <td><?= $row['aluno_nome']?></td>
+            <td><?= $row['aluno_cpf']?></td>
+            <td><?= $row['aluno_telefone']?></td>
+            <td><?= $row['aluno_endereco']?></td>
             <td>
                 <form method="post" style="display:inline;">
-                    <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
+                    <input type="hidden" name="delete_id" value="<?= $row['aluno_cod'] ?>">
                     <button type="submit">Excluir</button>
                 </form>
                 <form method="post" style="display:inline;">
-                    <input type="hidden" name="update_id" value="<?= $row['id'] ?>">
-                    <input type="text" name="nome" value="<?= $row['nome'] ?>" required>
-                    <input type="text" name="endereco" placeholder="Endereço" required>
-                    <input type="text" name="telefone" value="<?= $row['telefone']?>" required>
+                    <input type="hidden" name="update_id" value="<?= $row['aluno_cod'] ?>">
+                    <input type="text" name="aluno_nome" value="<?= $row['aluno_nome'] ?>" required>
+                    <input type="text" name="aluno_endereco" value="<?= $row['aluno_endereco'] ?>" required>
+                    <input type="text" name="aluno_telefone" value="<?= $row['aluno_telefone']?>" required>
                     <button type="submit">Atualizar</button>
                 </form>
             </td>
