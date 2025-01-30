@@ -1,0 +1,177 @@
+/* Flávia Glenda e Julia Conconi */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+html, body {
+    background-color: #ffffff36; 
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_fundo {
+    background-image: linear-gradient(rgba(24, 24, 24, 0.438),rgba(0, 0, 0, 0.46)), url(img/fundologin.jpg);
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 60% black;
+}
+
+
+.formcaixa {
+    max-width: 350px;
+    background: #ffffffc2; 
+    overflow: hidden;
+    border-radius: 10px;
+    color: #000000;
+    box-shadow: 4px 4px 10px rgba(1, 1, 1, 0.8); 
+}
+
+  
+  .form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px 24px;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .titulo {
+    font-weight: 950; 
+    font-size: 1.8rem; 
+   
+}
+  
+  .subtitulo {
+    font-size: 1rem;
+    color: #000000;
+  }
+  
+  .form-container {
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 1rem 0 .5rem;
+    width: 100%;
+  }
+  
+  .input {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #48484877;
+    font-size: .9rem;
+    padding: 8px 15px;
+  }
+  
+  .pag_login {
+    padding: 16px;
+    font-size: .85rem;
+    background-color: #ffffff;
+    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+  }
+  
+  .pag_login a {
+    font-weight: bold;
+    color: 42701b;
+    transition: color .3s ease;
+  }
+  
+  .pag_login a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  .form button {
+    background-color: 42701b;
+    color: #fff;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
+  }
+  
+  .form button:hover {
+    background-color: #44999a;
+  }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+}
+
+.botao {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #44999a;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navbar {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(68,153,154,1) 35%, rgba(112,220,238,1) 100%);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 50px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+}
+
+.navbar li {
+    margin: 0 15px; 
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s; 
+
+}
+
+.navbar a:hover {
+    color: #000000; 
+}
+
