@@ -10,7 +10,7 @@
 <body class="login_fundo">
 <div class="formcaixa">
 <form class="form">
-    <img class="logo_login" src="./img/logo.png" alt="Logo FitZone">
+    <img class="logo_login" src="./img/logoo.png" alt="Logo FitZone">
     <span class="subtitulo">Faça seu login!</span>
     <div class="form-container_login">
       <input class="login_caixas"type="text" class="input" placeholder="Nome">

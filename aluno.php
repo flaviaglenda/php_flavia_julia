@@ -51,6 +51,16 @@ $result = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav class="navbar">
+        <img src="img/logoo.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="home.php">Início</a></li>
+            <li><a href="aulas.php">Aulas</a></li>
+            <li><a href="aluno.php">Alunos</a></li>
+            <li><a href="instrutor.php">Instrutores</a></li>
+            <li><a class="sair" href="login.php">Sair</a></li>
+        </ul>
+    </nav>
     <h2>Lista de alunos</h2>
     <table border="1">
         <tr>

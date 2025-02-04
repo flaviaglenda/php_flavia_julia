@@ -30,11 +30,13 @@ $resultado = $conexao->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="style.css">
     <title>Instrutores</title>
 </head>
 <body>
 <nav class="navbar">
+    <img src="img/logoo.png" alt="Logo" class="logo">
         <ul>
             <li><a href="home.php">Início</a></li>
             <li><a href="aulas.php">Aulas</a></li>
@@ -45,22 +47,50 @@ $resultado = $conexao->query($sql);
     </nav>
     <h2>Instrutores</h2>
 
-    <table>
+    <table class="tabela-instrutores">
+    <thead>
         <tr>
             <th>Nome</th>
             <th>Especialidade</th>
             <th>Ações</th>
         </tr>
+    </thead>
+    <tbody>
         <?php while ($linha = $resultado->fetch_assoc()) { ?>
             <tr>
                 <td><?php echo $linha["instrutor_nome"]; ?></td>
                 <td><?php echo $linha["instrutor_especialidade"]; ?></td>
                 <td>
-                    <a href="instrutor.php?editar=<?php echo urlencode($linha["instrutor_nome"]); ?>">Editar</a> |
-                    <a href="instrutor.php?excluir=<?php echo urlencode($linha["instrutor_nome"]); ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    <a href="instrutor.php?editar=<?php echo urlencode($linha["instrutor_nome"]); ?>" class="editar-btn">Editar</a> |
+                    <a href="javascript:void(0);" onclick="confirmarExclusao('<?php echo urlencode($linha["instrutor_nome"]); ?>')" class="excluir-btn">Excluir</a>
                 </td>
             </tr>
         <?php } ?>
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmarExclusao(nome) {
+        Swal.fire({
+            title: 'Tem certeza que deseja excluir?',
+            text: "Você não poderá reverter essa ação!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sim, excluir!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'instrutor.php?excluir=' + nome;
+            }
+        });
+    }
+</script>
+
+            </tr>
+        <?php ?>
     </table>
 
     <?php if (isset($_GET['editar'])) {
@@ -79,7 +109,11 @@ $resultado = $conexao->query($sql);
             <input type="submit" name="atualizar" value="Atualizar">
         </form>
     <?php } ?>
-
+    <footer>
+        <div class="footer-container">
+            <img src="./img/logoo.png" alt="Logo" class="logo-footer">
+        </div>
+    </footer>
 </body>
 </html>
 
