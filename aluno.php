@@ -14,34 +14,6 @@ if (!empty($cod)) {
     $resultado = $stmt->get_result()->fetch_assoc();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-<<<<<<< HEAD
-    if (isset($_POST['delete_id'])) { 
-=======
-    if (isset($_POST['delete_id'])) {  // excluir aluno
->>>>>>> 89823155b44e405e69aca6824748a014340772f0
-        $cod = $_POST['delete_id'];
-        $sql = "DELETE FROM aluno WHERE aluno_cod = ?";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("i", $cod);
-        $stmt->execute();
-        echo "<script>alert('Aluno excluído com sucesso!');</script>";
-    } 
-<<<<<<< HEAD
-    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) { 
-=======
-    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // atualizar aluno
->>>>>>> 89823155b44e405e69aca6824748a014340772f0
-        $nome = $_POST['nome'];
-        $endereco = $_POST['endereco'];
-        $telefone = $_POST['telefone'];
-    
-        $sql = "UPDATE aluno SET nome = ?, endereco = ?, telefone = ? WHERE aluno_cod = ?";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("sssi", $nome, $endereco, $telefone, $cod);
-        echo "<script>alert('Dados atualizados com sucesso!');</script>";
-    }
-}
 $sql = "SELECT * FROM aluno";
 $result = $conexao->query($sql);
 ?>
@@ -55,32 +27,6 @@ $result = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<<<<<<< HEAD
-<header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="aulas.php">Aulas</a></li>
-            <li><a href="aluno.php">Alunos</a></li>
-            <li><a href="instutor.php">Instrutores</a></li>
-            <li><a class="sair" href="login.php">Sair</a></li>
-        </ul>
-    </nav>
-    <h2 class="titulo">Lista de alunos</h2>
-    <table border="1" class="tabela_alunos">
-=======
-<nav class="navbar">
-        <img src="img/logoo.png" alt="Logo" class="logo">
-        <ul>
-            <li><a href="home.php">Início</a></li>
-            <li><a href="aulas.php">Aulas</a></li>
-            <li><a href="aluno.php">Alunos</a></li>
-            <li><a href="instrutor.php">Instrutores</a></li>
-            <li><a class="sair" href="login.php">Sair</a></li>
-        </ul>
-    </nav>
-    <h2>Lista de alunos</h2>
-    <table border="1">
->>>>>>> 89823155b44e405e69aca6824748a014340772f0
         <tr>
             <th>Nome</th>
             <th>CPF</th>
@@ -95,11 +41,12 @@ $result = $conexao->query($sql);
             <td><?= $row['aluno_telefone']?></td>
             <td><?= $row['aluno_endereco']?></td>
             <td>
-                <form method="post" style="display:inline;">
+                <form action="excluir.php" method="post" style="display:inline;">
                     <input type="hidden" name="delete_id" value="<?= $row['aluno_cod'] ?>">
                     <button type="submit">Excluir</button>
                 </form>
-                <form method="post" style="display:inline;">
+
+                <form action="atualizar.php" method="post" style="display:inline;">
                     <input type="hidden" name="update_id" value="<?= $row['aluno_cod'] ?>">
                     <input type="text" name="aluno_nome" value="<?= $row['aluno_nome'] ?>" required>
                     <input type="text" name="aluno_endereco" value="<?= $row['aluno_endereco'] ?>" required>
