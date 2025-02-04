@@ -14,7 +14,6 @@ if (!empty($cod)) {
     $resultado = $stmt->get_result()->fetch_assoc();
 }
 
-<<<<<<< HEAD
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['delete_id'])) {  // Excluir aluno
         $cod = $_POST['delete_id'];
@@ -39,8 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Buscar todos os alunos
-=======
->>>>>>> 53b8232a31d896410ecbcbfa987acf14f0d22340
 $sql = "SELECT * FROM aluno";
 $result = $conexao->query($sql);
 ?>
@@ -107,7 +104,6 @@ $result = $conexao->query($sql);
 
 <?php $conexao->close(); ?>
 
-=======
 <body>
         <tr>
             <th>Nome</th>
@@ -139,6 +135,5 @@ $result = $conexao->query($sql);
         </tr>
         <?php endwhile; ?>
     </table>
->>>>>>> 53b8232a31d896410ecbcbfa987acf14f0d22340
 </body>
 </html>
