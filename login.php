@@ -16,11 +16,6 @@
       <input class="login_caixas"type="text" class="input" placeholder="Nome">
 			<input class="login_caixas"type="password" class="input" placeholder="Senha">
     </div>
-    <span class="subtitulo">Como deseja entrar?</span>
-    <select class="dropdown">
-        <option value="aluno">Aluno</option>
-        <option value="instrutor">Instrutor</option>
-        <option value="admin">Administrador</option>
-    </select>
+
     <a href="home.php" class="botao">Entrar</a>
 </form>

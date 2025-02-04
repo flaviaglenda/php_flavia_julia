@@ -34,7 +34,7 @@ $resultado = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
     <title>Instrutores</title>
 </head>
-<body>
+<body class="instrutor_fundo">
 <nav class="navbar">
     <img src="img/logoo.png" alt="Logo" class="logo">
         <ul>
@@ -69,7 +69,6 @@ $resultado = $conexao->query($sql);
     </tbody>
 </table>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function confirmarExclusao(nome) {
         Swal.fire({
@@ -109,11 +108,7 @@ $resultado = $conexao->query($sql);
             <input type="submit" name="atualizar" value="Atualizar">
         </form>
     <?php } ?>
-    <footer>
-        <div class="footer-container">
-            <img src="./img/logoo.png" alt="Logo" class="logo-footer">
-        </div>
-    </footer>
+
 </body>
 </html>
 

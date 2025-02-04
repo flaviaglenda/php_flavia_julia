@@ -78,10 +78,5 @@
             </p>
         </div>
     </div>
-    <footer>
-        <div class="footer-container">
-            <img src="./img/logoo.png" alt="Logo" class="logo-footer">
-        </div>
-    </footer>
 </body>
 </html>

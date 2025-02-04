@@ -50,7 +50,7 @@ $result = $conexao->query($sql);
     <title>Gerenciamento de alunos</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="instrutor_fundo">
 <nav class="navbar">
         <img src="img/logoo.png" alt="Logo" class="logo">
         <ul>
@@ -79,14 +79,14 @@ $result = $conexao->query($sql);
             <td>
                 <form method="post" style="display:inline;">
                     <input type="hidden" name="delete_id" value="<?= $row['aluno_cod'] ?>">
-                    <button type="submit">Excluir</button>
+                    <button class="exluir_aluno" type="submit">Excluir</button>
                 </form>
                 <form method="post" style="display:inline;">
                     <input type="hidden" name="update_id" value="<?= $row['aluno_cod'] ?>">
                     <input type="text" name="aluno_nome" value="<?= $row['aluno_nome'] ?>" required>
                     <input type="text" name="aluno_endereco" value="<?= $row['aluno_endereco'] ?>" required>
                     <input type="text" name="aluno_telefone" value="<?= $row['aluno_telefone']?>" required>
-                    <button type="submit">Atualizar</button>
+                    <button class="atualizar_aluno" type="submit">Atualizar</button>
                 </form>
             </td>
         </tr>

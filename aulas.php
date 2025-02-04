@@ -59,7 +59,7 @@ $result = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
+<body class="instrutor_fundo">
 <nav class="navbar">
     <img src="img/logoo.png" alt="Logo" class="logo">
     <ul>
@@ -89,7 +89,32 @@ $result = $conexao->query($sql);
         <td>
             <form method="post" style="display:inline;">
                 <input type="hidden" name="delete_id" value="<?= $row['aula_cod'] ?>">
-                <button type="submit" class="excluir-btn">Excluir</button>
+                
+    <button class="deletar_botao">Excluir</button>
+
+    <script>
+        document.querySelectorAll(".deletar_botao").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                
+                Swal.fire({
+                    title: "Tem certeza?",
+                    text: "Essa ação não poderá ser desfeita!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Sim, excluir!",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.closest("form_aluno").submit();
+                    }
+                });
+            });
+        });
+    </script>
+
             </form>
             <a href="aulas.php?cod=<?= $row['aula_cod'] ?>" class="editar-btn">Editar</a>
         </td>
