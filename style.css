@@ -421,7 +421,6 @@ footer {
   color: #fff;
 }
  /* alunos */
- /* Estilo da Tabela de Alunos */
 table {
   width: 80%;
   margin: 40px auto;
@@ -448,9 +447,6 @@ table tr:nth-child(even) {
   background-color: #2c3e56;
 }
 
-table tr:hover {
-  background-color: #34495e; /* Mudança de cor ao passar o mouse sobre a linha */
-}
 
 button {
   padding: 6px 12px;

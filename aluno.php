@@ -15,7 +15,7 @@ if (!empty($cod)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['delete_id'])) {  // Excluir aluno
+    if (isset($_POST['delete_id'])) {  // excluir aluno
         $cod = $_POST['delete_id'];
         $sql = "DELETE FROM aluno WHERE aluno_cod = ?";
         $stmt = $conexao->prepare($sql);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         echo "<script>alert('Aluno excluído com sucesso!');</script>";
     } 
-    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // Atualizar aluno
+    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // atualizar aluno
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];

@@ -4,7 +4,6 @@ include 'conexao.php';
 $cod_aula = $_GET['cod'] ?? null;
 $resultado = null;
 
-// Buscar dados da aula para edição
 if (!empty($cod_aula)) {
     $sql = "SELECT * FROM aula 
             INNER JOIN aluno ON aula.fk_aluno_cod = aluno.aluno_cod
@@ -16,7 +15,7 @@ if (!empty($cod_aula)) {
     $resultado = $stmt->get_result()->fetch_assoc();
 }
 
-// Processar exclusão de aula
+//excluir aula
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
     $cod_aula = $_POST['delete_id'];
     $sql = "DELETE FROM aula WHERE aula_cod = ?";
@@ -29,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
           </script>";
 }
 
-// Processar edição de aula
+//editar de aula
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tipo_aula'])) {
     $sql = "UPDATE aula SET aula_tipo = ?, aula_data = ?, fk_instrutor_cod = ?, fk_aluno_cod = ? WHERE aula_cod = ?";
     $stmt = $conexao->prepare($sql);
@@ -44,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tipo_aula'])) {
     }
 }
 
-// Buscar todas as aulas
+// buscar as aulas
 $sql = "SELECT aula.*, aluno.aluno_nome, instrutor.instrutor_nome FROM aula 
         INNER JOIN aluno ON aula.fk_aluno_cod = aluno.aluno_cod
         INNER JOIN instrutor ON aula.fk_instrutor_cod = instrutor.instrututor_cod";
