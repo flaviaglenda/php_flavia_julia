@@ -14,6 +14,7 @@ if (!empty($cod)) {
     $resultado = $stmt->get_result()->fetch_assoc();
 }
 
+<<<<<<< HEAD
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['delete_id'])) {  // Excluir aluno
         $cod = $_POST['delete_id'];
@@ -38,6 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Buscar todos os alunos
+=======
+>>>>>>> 53b8232a31d896410ecbcbfa987acf14f0d22340
 $sql = "SELECT * FROM aluno";
 $result = $conexao->query($sql);
 ?>
@@ -50,6 +53,7 @@ $result = $conexao->query($sql);
     <title>Gerenciamento de Alunos</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<<<<<<< HEAD
 <body class="instrutor_fundo">
 
 <header>
@@ -103,5 +107,38 @@ $result = $conexao->query($sql);
 
 <?php $conexao->close(); ?>
 
+=======
+<body>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Modificar</th>
+        </tr>
+        <?php while ($row = $result->fetch_assoc()): ?>
+        <tr>
+            <td><?= $row['aluno_nome']?></td>
+            <td><?= $row['aluno_cpf']?></td>
+            <td><?= $row['aluno_telefone']?></td>
+            <td><?= $row['aluno_endereco']?></td>
+            <td>
+                <form action="excluir.php" method="post" style="display:inline;">
+                    <input type="hidden" name="delete_id" value="<?= $row['aluno_cod'] ?>">
+                    <button type="submit">Excluir</button>
+                </form>
+
+                <form action="atualizar.php" method="post" style="display:inline;">
+                    <input type="hidden" name="update_id" value="<?= $row['aluno_cod'] ?>">
+                    <input type="text" name="aluno_nome" value="<?= $row['aluno_nome'] ?>" required>
+                    <input type="text" name="aluno_endereco" value="<?= $row['aluno_endereco'] ?>" required>
+                    <input type="text" name="aluno_telefone" value="<?= $row['aluno_telefone']?>" required>
+                    <button type="submit">Atualizar</button>
+                </form>
+            </td>
+        </tr>
+        <?php endwhile; ?>
+    </table>
+>>>>>>> 53b8232a31d896410ecbcbfa987acf14f0d22340
 </body>
 </html>
