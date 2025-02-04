@@ -15,7 +15,11 @@ if (!empty($cod)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
     if (isset($_POST['delete_id'])) { 
+=======
+    if (isset($_POST['delete_id'])) {  // excluir aluno
+>>>>>>> 89823155b44e405e69aca6824748a014340772f0
         $cod = $_POST['delete_id'];
         $sql = "DELETE FROM aluno WHERE aluno_cod = ?";
         $stmt = $conexao->prepare($sql);
@@ -23,7 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         echo "<script>alert('Aluno excluído com sucesso!');</script>";
     } 
+<<<<<<< HEAD
     elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) { 
+=======
+    elseif (!empty($cod) && isset($_POST['nome'], $_POST['endereco'], $_POST['telefone'])) {  // atualizar aluno
+>>>>>>> 89823155b44e405e69aca6824748a014340772f0
         $nome = $_POST['nome'];
         $endereco = $_POST['endereco'];
         $telefone = $_POST['telefone'];
@@ -47,6 +55,7 @@ $result = $conexao->query($sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<<<<<<< HEAD
 <header>
     <nav class="navbar">
         <ul>
@@ -58,6 +67,20 @@ $result = $conexao->query($sql);
     </nav>
     <h2 class="titulo">Lista de alunos</h2>
     <table border="1" class="tabela_alunos">
+=======
+<nav class="navbar">
+        <img src="img/logoo.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="home.php">Início</a></li>
+            <li><a href="aulas.php">Aulas</a></li>
+            <li><a href="aluno.php">Alunos</a></li>
+            <li><a href="instrutor.php">Instrutores</a></li>
+            <li><a class="sair" href="login.php">Sair</a></li>
+        </ul>
+    </nav>
+    <h2>Lista de alunos</h2>
+    <table border="1">
+>>>>>>> 89823155b44e405e69aca6824748a014340772f0
         <tr>
             <th>Nome</th>
             <th>CPF</th>

@@ -10,13 +10,13 @@
 <body class="login_fundo">
 <div class="formcaixa">
 <form class="form">
-    <span class="titulo">FitZone</span>
+    <img class="logo_login" src="./img/logoo.png" alt="Logo FitZone">
     <span class="subtitulo">Faça seu login!</span>
-    <div class="form-container">
-      <input type="text" class="input" placeholder="Nome">
-			<input type="password" class="input" placeholder="Senha">
+    <div class="form-container_login">
+      <input class="login_caixas"type="text" class="input" placeholder="Nome">
+			<input class="login_caixas"type="password" class="input" placeholder="Senha">
     </div>
-    <span class="escolha">Como deseja logar?</span>
+    <span class="subtitulo">Como deseja entrar?</span>
     <select class="dropdown">
         <option value="aluno">Aluno</option>
         <option value="instrutor">Instrutor</option>
